@@ -1,9 +1,8 @@
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers"
-import { assert, expect } from "chai"
-import { networkConfig, totalSupply } from "../../helper-hardhat-config"
+import { expect } from "chai"
+import { name, symbol, totalSupply } from "../../helper-hardhat-config"
 import { deployments, ethers } from "hardhat"
-import { ICOToken, ICOToken__factory } from "../../typechain-types"
-import { BigNumber } from "ethers"
+import { ICOToken } from "../../typechain-types"
 
 describe("unit tests", () => {
   let icoToken: ICOToken
@@ -15,8 +14,18 @@ describe("unit tests", () => {
     icoToken = await ethers.getContract("ICOToken", deployer)
   })
 
-  it("should mint initial supply", async () => {
-    const response = await icoToken.totalSupply()
-    expect(response).to.be.equal(totalSupply)
+  describe("initial arguments", () => {
+    it("correct supply", async () => {
+      const response = await icoToken.totalSupply()
+      expect(response).to.be.equal(totalSupply)
+    })
+    it("correct name", async () => {
+      const response = await icoToken.name()
+      expect(response).to.be.equal(name)
+    })
+    it("correct symbol", async () => {
+      const response = await icoToken.symbol()
+      expect(response).to.be.equal(symbol)
+    })
   })
 })

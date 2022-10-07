@@ -10,11 +10,9 @@ const deployIco: DeployFunction = async function (
   const { deployer } = await getNamedAccounts()
   const chainId: number = network.config.chainId!
 
-  console.log({ deployer })
-
-  if (chainId == 31337) {
-  } else {
-  }
+  // if (chainId == 31337) {
+  // } else {
+  // }
 
   const args: any[] = [totalSupply]
   const goFundMe = await deploy("ICOToken", {

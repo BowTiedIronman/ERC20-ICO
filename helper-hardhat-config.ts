@@ -1,6 +1,9 @@
 import { ethers } from "hardhat"
 
-// {chainId : {name, eth/usd oracle address}}
+export const totalSupply = ethers.BigNumber.from(1000)
+export const name = "ICOToken"
+export const symbol = "TKN"
+
 export const networkConfig: {
   [key: number]: { name: string }
 } = {
@@ -11,5 +14,3 @@ export const networkConfig: {
     name: "goerli"
   }
 }
-
-export const totalSupply = ethers.BigNumber.from(1000)
