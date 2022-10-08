@@ -4,7 +4,7 @@ export const name = "IcoToken"
 export const symbol = "TKN"
 export const valueInEth = 100
 export const icoDurationBlocks = 50
-export const taxPercent = 5
+export const taxBasisPoints = 100 // 1%
 
 export const networkConfig: {
   [key: number]: { name: string }

@@ -7,7 +7,7 @@ import {
   networkConfig,
   premint,
   symbol,
-  taxPercent,
+  taxBasisPoints,
   valueInEth
 } from "../helper-hardhat-config"
 
@@ -31,7 +31,7 @@ const deployIco: DeployFunction = async function (
     valueInEth,
     0, //icoStartBlock // if 0, constructor sets icoStartBlock = block.number;
     icoDurationBlocks,
-    taxPercent,
+    taxBasisPoints,
     deployer // taxAddress
   ]
 
