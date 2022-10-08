@@ -1,6 +1,15 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types"
 import { DeployFunction } from "hardhat-deploy/types"
-import { networkConfig, totalSupply } from "../helper-hardhat-config"
+import {
+  icoDurationBlocks,
+  maxSupply,
+  name,
+  networkConfig,
+  premint,
+  symbol,
+  taxPercent,
+  valueInEth
+} from "../helper-hardhat-config"
 
 const deployIco: DeployFunction = async function (
   hre: HardhatRuntimeEnvironment
@@ -14,8 +23,21 @@ const deployIco: DeployFunction = async function (
   // } else {
   // }
 
-  const args: any[] = [totalSupply]
-  const goFundMe = await deploy("ICOToken", {
+  const args: any[] = [
+    premint,
+    maxSupply,
+    name,
+    symbol,
+    valueInEth,
+    0, //icoStartBlock // if 0, constructor sets icoStartBlock = block.number;
+    icoDurationBlocks,
+    taxPercent,
+    deployer // taxAddress
+  ]
+
+  console.log({ args })
+
+  const icoToken = await deploy("IcoToken", {
     from: deployer,
     args: args,
     log: true,
@@ -26,4 +48,4 @@ const deployIco: DeployFunction = async function (
 export default deployIco
 //  tags are useful when you dont want to deploy all scripts
 // yarn hardhat deploy --netowrk rinkeby --tags fundMe
-deployIco.tags = ["all", "ico"]
+deployIco.tags = ["all", "token"]

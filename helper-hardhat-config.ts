@@ -1,8 +1,10 @@
-import { ethers } from "hardhat"
-
-export const totalSupply = ethers.BigNumber.from(1000)
-export const name = "ICOToken"
+export const maxSupply = 21 * 10 ** 6 // 21 million
+export const premint = 21 * 10 ** 5
+export const name = "IcoToken"
 export const symbol = "TKN"
+export const valueInEth = 100
+export const icoDurationBlocks = 50
+export const taxPercent = 5
 
 export const networkConfig: {
   [key: number]: { name: string }
