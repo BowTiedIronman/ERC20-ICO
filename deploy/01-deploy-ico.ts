@@ -32,7 +32,8 @@ const deployIco: DeployFunction = async function (
     0, //icoStartBlock // if 0, constructor sets icoStartBlock = block.number;
     icoDurationBlocks,
     taxBasisPoints,
-    deployer // taxAddress
+    deployer, // taxAddress
+    deployer // destination for vested tokens
   ]
 
   console.log({ args })

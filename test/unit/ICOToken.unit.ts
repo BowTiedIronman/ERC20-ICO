@@ -40,7 +40,6 @@ describe("unit tests", () => {
       const expectedSupply = ethers.utils.parseUnits(premint.toString())
       expect(supply.toString()).to.be.equal(expectedSupply.toString())
     })
-
     it("correct max supply", async () => {
       const supply = await icoToken.cap()
       expect(supply).to.be.equal(ethers.utils.parseUnits(maxSupply.toString()))
